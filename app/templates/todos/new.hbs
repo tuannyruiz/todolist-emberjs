@@ -1,0 +1,16 @@
+<form id="new-todo-form">
+	<div class="form-group">
+		<label>Título</label>
+		{{input type="text" class="form-control" value=title placeholder="Adicione a tarefa aqui"}}
+	</div>	
+	<div class="form-group">
+		<label>Prazo</label>
+		{{input type="date" class="form-control" value=date}}
+	</div>	
+	<div class="form-group">
+		<label>Descrição</label>
+		{{textarea class="form-control" value=body placeholder="Descrição da tarefa a ser realizada"}}
+	</div>
+	<button {{action 'addTodo'}} class="btn btn-primary">Submit</button>
+	{{#link-to 'todos' class="btn btn-default"}}Fechar{{/link-to}}
+</form>

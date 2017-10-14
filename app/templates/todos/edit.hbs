@@ -1,0 +1,17 @@
+<form id="edit-todo-form">
+	<div class="form-group">
+		<label>Título</label>
+		{{input type="text" class="form-control" value=model.title placeholder="Adicione a tarefa aqui"}}
+	</div>	
+	<div class="form-group">
+		<label>Prazo</label>
+		{{input type="date" class="form-control" value=model.date}}
+	</div>	
+	<div class="form-group">
+		<label>Descrição</label>
+		{{textarea class="form-control" value=model.body placeholder="Descrição da tarefa a ser realizada"}}
+	</div>
+	<button {{action 'editTodo' model.id}} class="btn btn-primary">Submit</button>
+	{{#link-to 'todos' class="btn btn-default"}}Fechar{{/link-to}}
+	<button {{action 'deleteTodo' model.id}} class="btn btn-danger pull-right">Excluir</button>
+</form>

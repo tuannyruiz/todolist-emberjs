@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-4">
+		{{#link-to 'todos.new' class="btn btn-success"}}
+			Crie uma tarefa
+		{{/link-to}}
+
+		<hr>
+
+		{{outlet}}
+	</div>
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-12">
+				<form class="form-inline">
+					<div class="form-group">
+						{{input type="text" class="form-control" value=filter id="search" placeholder="Filtrar as tarefas"}}
+					</div>
+				</form>
+			</div>
+		</div>
+		<hr><br>
+		{{#if filter}}
+			{{#each filteredTodos as |todo|}}
+				<div class="well">
+					<h4>{{#link-to 'todos.edit' todo.id}}{{todo.title}} <span class="label label-primary pull-right">{{format-date todo.date}}</span>{{/link-to}}</h4>
+					{{todo.body}}
+				</div>
+			{{/each}}
+		{{else}}
+			{{#each sortedTodos as |todo|}}
+				<div class="well">
+					<h4>{{#link-to 'todos.edit' todo.id}}{{todo.title}} <span class="label label-primary pull-right">{{format-date todo.date}}</span>{{/link-to}}</h4>
+					{{todo.body}}
+				</div>
+			{{/each}}
+		{{/if}}
+
+	</div>
+</div>
